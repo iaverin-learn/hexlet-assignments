@@ -23,26 +23,22 @@ public class ProductsController {
 
     // BEGIN
     @GetMapping()
-    public List<Product> getProducts(@RequestParam(required = false) Integer min, @RequestParam(required = false) Integer max) {
-        Sort sort = Sort.by(Sort.Order.asc("price"));    
-        int maxFilterValue; 
+    public List<Product> getProducts(@RequestParam(required = false) Integer min,
+            @RequestParam(required = false) Integer max) {
+        Sort sort = Sort.by(Sort.Order.asc("price"));
+        int maxFilterValue;
         if (max == null) {
-            maxFilterValue = 999999999;
-        }
-        else {
+            maxFilterValue = Integer.MAX_VALUE;
+        } else {
             maxFilterValue = max;
         }
-        int minFilterValue; 
+        int minFilterValue;
         if (min == null) {
-            minFilterValue = -1;
-        } 
-        else {
+            minFilterValue = Integer.MIN_VALUE;
+        } else {
             minFilterValue = min;
         }
         return productRepository.findByPriceBetweenAndSort(minFilterValue, maxFilterValue, sort);
-        //     }
-
-        // return productRepository.findAll(sort);
     }
     // END
 

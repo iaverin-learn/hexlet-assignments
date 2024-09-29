@@ -32,7 +32,7 @@ import exercise.model.Task;
 @SpringBootTest
 @AutoConfigureMockMvc
 // END
-class ApplicationTest {
+class TaskControllerTest {
 
     @Autowired
     private MockMvc mockMvc;

@@ -107,6 +107,7 @@ class CategoriesControllerTest {
     @Test
     public void testCreateWithNotValidName() throws Exception {
         var dto = mapper.map(testCategory);
+
         dto.setName("");
 
         var request = post("/categories")

@@ -11,6 +11,7 @@ import org.mapstruct.ReportingPolicy;
 // BEGIN
 @Mapper(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public abstract class CategoryMapper {
+    
     public abstract Category map(CategoryDTO dto);
 
     public abstract CategoryDTO map(Category dto);

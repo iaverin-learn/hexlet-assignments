@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import exercise.dto.ProductCreateDTO;
 import exercise.dto.ProductDTO;
 import exercise.dto.ProductUpdateDTO;
+import exercise.exception.BadRequestException;
 import exercise.mapper.ProductMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,10 +51,17 @@ public class ProductsController {
         return productMapper.map(product);
     }
 
-    @PostMapping
+    @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public ProductDTO createProduct(@RequestBody ProductCreateDTO productData) {
+
         var product = productMapper.map(productData);
+        var newCategoryId = productData.getCategoryId();
+    
+        var category = categoryRepository.findById(newCategoryId).orElseThrow( () -> new BadRequestException("dfdf"));
+        
+        product.setCategory(category);
+        
         return productMapper.map(productRepository.save(product));
     }
 

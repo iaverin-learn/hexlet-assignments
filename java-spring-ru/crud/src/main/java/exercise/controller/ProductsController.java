@@ -1,6 +1,5 @@
 package exercise.controller;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -8,7 +7,6 @@ import exercise.dto.ProductCreateDTO;
 import exercise.dto.ProductDTO;
 import exercise.dto.ProductUpdateDTO;
 import exercise.mapper.ProductMapper;
-import exercise.model.Product;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,10 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import exercise.exception.ResourceNotFoundException;
 import exercise.repository.CategoryRepository;
 import exercise.repository.ProductRepository;
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/products")

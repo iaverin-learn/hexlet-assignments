@@ -2,8 +2,6 @@ package exercise.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
-import org.mapstruct.NullValuePropertyMappingStrategy;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.TargetType;
 import org.springframework.beans.factory.annotation.Autowired;
 
